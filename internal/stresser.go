@@ -36,8 +36,7 @@ func RunStresser(url string, numberOfRequests, numberOfThreads uint64) error {
 
 func stresser(url string, numberOfRequests, numberOfThreads uint64) {
 	report := NewReport()
-	fmt.Println(report.requestDistribution)
-	fmt.Printf("Starting stresser with %d requests and %d threads\n", numberOfRequests, numberOfThreads)
+	fmt.Printf("Angry customer at %s making %d requests with %d threads\n", url, numberOfRequests, numberOfThreads)
 
 	threadControl := make(chan struct{}, numberOfThreads)
 	start := time.Now()
@@ -64,10 +63,7 @@ func makeRequest(url string, threadControl <-chan struct{}, report *Report) {
 		<-threadControl
 		return
 	}
-
-	time.Sleep(200 * time.Millisecond)
-	go report.AddRequest(res.StatusCode)
-
+	report.AddRequest(res.StatusCode)
 	<-threadControl
 }
 
