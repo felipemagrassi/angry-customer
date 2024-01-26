@@ -67,13 +67,13 @@ func buildFromArgs(args []string) (string, uint64, uint64) {
 
 	requests, err := strconv.ParseUint(requestsStr, 10, 64)
 	if err != nil {
-		fmt.Println(err)
+		fmt.Println("Error parsing requests number use as -r=10 or --requests=10")
 		os.Exit(1)
 	}
 
 	concurrency, err := strconv.ParseUint(concurrencyStr, 10, 64)
 	if err != nil {
-		fmt.Println(err)
+		fmt.Println("Error parsing concurrency number use as -c=10 or --concurrency=10")
 		os.Exit(1)
 	}
 
