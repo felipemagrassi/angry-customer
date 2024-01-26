@@ -1,5 +1,5 @@
 /*
-Copyright © 2024 NAME HERE <EMAIL ADDRESS>
+Copyright © 2024 Felipe Magrassi <felipe.1magrassi@gmail.com>
 
 */
 package main
